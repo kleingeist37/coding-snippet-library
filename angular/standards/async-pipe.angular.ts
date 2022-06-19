@@ -57,6 +57,7 @@ export class CharacterService implements OnDestroy{
   }
 
   public addCharacter(character: Person) : boolean {
+    //NEEDS TO BE ASYNC VALIDATOR IN FORM, THEN THIS CAN BE DROPPED
     if(this.charactersCache != null){
       if(this.charactersCache.some(x => x.firstName === character.firstName && x.lastName === character.lastName))
       return false;
