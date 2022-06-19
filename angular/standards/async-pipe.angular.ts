@@ -17,7 +17,6 @@
 //***************
 export class CharacterListComponent {
   persons$: Observable<Person[]>;
-  sub!: Subscription;
   constructor(private characterService: CharacterService) {
     this.persons$ = this.characterService.characterTest();
   }
