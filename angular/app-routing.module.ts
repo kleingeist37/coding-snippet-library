@@ -1,3 +1,5 @@
+//LAZY LOADING
+
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, PreloadingStrategy, RouterModule, Routes } from '@angular/router';
 
