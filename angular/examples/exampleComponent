@@ -1,0 +1,22 @@
+//Gets Data from Service!
+
+export class CharacterListComponent implements OnInit, OnDestroy {
+
+  characterList: Person[] = [];
+
+  sub!: Subscription;
+  constructor(private characterService: CharacterService) {
+    
+   }
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
+
+  ngOnInit(): void {
+    //this.characterList = this.characterService.getCharacters();
+    this.sub = this.characterService.characterList.subscribe(list => this.characterList = list);
+    this.characterService.getCharacters();
+
+  }
+
+}
