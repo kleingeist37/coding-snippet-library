@@ -1,0 +1,23 @@
+//Example
+//Analyze Response Data and then map to Interface -> continue working with interface-mapped-data
+
+getStocks(){
+   this.httpClient.get("....").pipe(
+     map((res:any)=>{
+        //res is your object
+        
+        //you "iterate" over Object.keys(res)
+        //will be "0", "1", "2"...
+
+        //so, e.g. res[x] is 
+        const result=Object.keys(res).map(x=>({
+              ticker:res[x].acronym,
+              name:res[x].stock_exchange.name,
+              open:res[x].stock.open,
+              high:res[x].stock.high
+              ...others properties...
+         }))
+        return result;
+     }
+   ))
+}
