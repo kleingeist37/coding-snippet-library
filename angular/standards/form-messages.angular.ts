@@ -1,5 +1,9 @@
+
+//Template File
 <p *ngFor="let msg of errorCheck()">{{msg}}</p>
 
+
+//Coding
 export class EditorMessagesComponent implements OnInit {
   @Input() control?: AbstractControl | null;
   @Input() controlName?: string;
