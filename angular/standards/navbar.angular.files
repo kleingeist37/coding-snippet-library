@@ -1,6 +1,9 @@
-export interface NavElement {
+export interface Base {
     id: string;
     name: string;
+}
+
+export interface NavElement extends Base {
     icon?: string;
     route: string; 
     params?: Params;
