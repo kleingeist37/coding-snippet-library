@@ -4,11 +4,10 @@ export interface Base {
 }
 
 export interface NavElement extends Base {
+    activeClass: string;  
     icon?: string;
-    route: string; 
     params?: Params;
-    activeClass: string;
-    
+    route: string;   
 }
 
 <mat-toolbar class="global-flex-bar">
