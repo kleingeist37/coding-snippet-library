@@ -16,6 +16,7 @@
 <ng-template #loading>
     <mat-spinner></mat-spinner>
 </ng-template>
+
 //***********
 //Coding
 //***********
@@ -39,8 +40,6 @@ export class CharacterListComponent implements OnDestroy{
 //***********
 //Coding FORM
 //***********
-
-
 export class EditorComponent implements OnInit {
 
   characterForm!: FormGroup;
@@ -86,7 +85,6 @@ export class EditorComponent implements OnInit {
 //***********
 //Coding SERVICE
 //***********
-
 export class CharacterService {
 
   private  api : string = "https://test-n4-76312-default-rtdb.europe-west1.firebasedatabase.app/";
@@ -116,6 +114,13 @@ export class CharacterService {
   public getCharacters() : Observable<Person[]> {
     return this.http.get(this.charactersAPI).pipe(
       map(data => {
+        //weil Firebase immer Random IDs generiert bei POST, was Angular/JS irritiert
+        //Deswegen dieses Konstrukt, um die Daten "ordentlich" zu machen. 
+        //Rückgabe von GET wird als Objekt interpretiert, daher umwandlung in Array.
+        //FirebaseStruktur: { 
+        //    { id: {firstName: bla, lastName: bli, email: bloar}
+        //    { id2: {firstName: bla, lastName: bli, email: bloar}
+        //}
         var entries = Object.entries(data);
         var filteredData: Person[] = [];
         for(let i = 0; i < entries.length; i++){
