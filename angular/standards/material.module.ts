@@ -1,5 +1,3 @@
-ng add @angular/material
-
 import { NgModule } from '@angular/core';
 
 import {MatButtonModule} from '@angular/material/button';
